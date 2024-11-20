@@ -1,3 +1,4 @@
+import '@testing-library/jest-dom';  // Adds custom Jest matchers like toBeInTheDocument
 import { render, screen } from '@testing-library/react';
 import React from 'react';
 
@@ -7,5 +8,6 @@ function HelloWorld() {
 
 test('renders Hello, World!', () => {
   render(<HelloWorld />);
-  expect(screen.getByText(/Hello, World!/i)).toBeInTheDocument();
+  const element = screen.getByText(/hello, world/i);
+  expect(element).toBeInTheDocument();
 });
